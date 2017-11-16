@@ -2,6 +2,7 @@ package com.hencoder.hencoderpracticedraw2.practice;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
@@ -31,6 +32,9 @@ public class Practice13ShadowLayerView extends View {
         super.onDraw(canvas);
 
         paint.setTextSize(120);
+        //第一个参数阴影的模糊范围，第二第三个参数是偏移量
+        //这种效果是在绘制层的下方，之后有一个setMaskFileter是在绘制层上方
+        paint.setShadowLayer(20,0,5, Color.RED);
         canvas.drawText("Hello HenCoder", 50, 200, paint);
     }
 }

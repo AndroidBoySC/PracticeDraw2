@@ -4,6 +4,9 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Paint;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
@@ -37,7 +40,11 @@ public class Practice07ColorMatrixColorFilterView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-
+        ColorMatrix matrix = new ColorMatrix();
+        //设置饱和度为0
+        matrix.setSaturation(0);
+        ColorFilter filter = new ColorMatrixColorFilter(matrix);
+        paint.setColorFilter(filter);
         canvas.drawBitmap(bitmap, 0, 0, paint);
     }
 }
